@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://member-eplus-jp.netlify.app/ -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<link rel="stylesheet" href="./顔認証同意書_files/bootstrap.min.css">
+<link href="./顔認証同意書_files/base.css" rel="stylesheet">
+<link href="./顔認証同意書_files/contents.css" rel="stylesheet">
+<link href="./顔認証同意書_files/colorbox.css" rel="stylesheet">
+<link rel="stylesheet" href="./顔認証同意書_files/eplus-FT.css">
+<link href="./顔認証同意書_files/all.css" rel="stylesheet">
+<script src="./顔認証同意書_files/jquery.js.ダウンロード"></script>
+<script src="./顔認証同意書_files/common.js.ダウンロード"></script>
+<script src="./顔認証同意書_files/jquery.colorbox-min.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/cf-base.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/global-properties.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/jquery.validate.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/jquery.blockUI.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/eplus-FT.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/character-set.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/validator.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/validation-rules.js.ダウンロード"></script>
+<script type="text/javascript" src="./顔認証同意書_files/hanzen.js.ダウンロード"></script>
+<script>
+$(window).load(function() {
+    /*
+     * GAタグ埋め込み
+     */
+    // 画面ID(エラー用があれば上書き)
+    $('#gaScreenId').val(getGaScreenId());
+    // メッセージID(エラー用があれば上書き)
+    $('#gaMessageId').val(getGaMessageId());
+    // メッセージ(エラー用があれば上書き)
+    $('#gaMessage').val(getGaMessage());
+    // 画面名
+    var screenTitle = $('title').text();
+    $('#gaScreenTitle').val(screenTitle);
+
+    /*
+     * 初期表示時の表示位置調整
+     */
+     var firstErrorObj = $('[class^=errorTxt]').first();
+     if (firstErrorObj && firstErrorObj.length > 0) {
+         var firstErrorObjPos = firstErrorObj.offset().top;
+         var nowPos = $(window).scrollTop() + $(window).height();
+         if (nowPos < firstErrorObjPos) {
+             window.scrollTo(0,firstErrorObjPos);
+         }
+     }
+});
+</script>
+<!--[if lt IE 9]>
+<script src="//res/p/js/html5shiv-printshiv.js?md5=87ab03595191d555da6261d11d2b2e32"></script>
+<script src="//res/p/js/selectivizr-min.js?md5=ed32136af18ca3ea4a3080ff620fba16"></script>
+<![endif]-->
+
+<title>顔認証同意書</title>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // 確認ボタン押下
+        $("#main-submit").on('click', function() {
+            $.confirmMsgBox("同意事項に同意します。よろしいでしょうか。", function() {
+                $.doSubmit($("#agreeAdmissionRuleForm"), {
+                    op : "completeConfirmAgreeRule"
+                });
+            });
+        });
+    });
+</script>
+
+<style type="text/css">
+.table {
+    table-layout: fixed;
+    width: 100%;
+    margin-left: 15px;
+}
+
+.table_list {
+    width: calc(100% - 16px);
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.table>tbody>tr>td, .table>thead>tr>th {
+    padding: 0px;
+    vertical-align: middle;
+    height: 40px;
+}
+
+.table>thead>tr>th {
+    background: #bbbbbb;
+    color: #ffffff;
+}
+
+.lineNo {
+    text-align: center;
+}
+
+.koenTime span {
+    padding: 10px;
+}
+
+.name span {
+    padding: 10px;
+}
+
+.ticketPayment span {
+    padding: 10px;
+}
+
+.seatType span {
+    padding: 10px;
+}
+
+.seatInfo span {
+    padding: 10px;
+}
+
+.faceImage span {
+    padding: 10px;
+}
+
+.komokuMongon span {
+    padding: 10px;
+}
+
+.kiyakuNaiyo span {
+    padding: 10px;
+}
+
+.confirmBtn {
+    position: relative;
+    right: 8px;
+    text-align: center;
+}
+
+.over-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.badge-red {
+    background-color: red;
+}
+
+.headTxt div {
+    display: inline;
+    font-size: 12px;
+}
+
+.noteText {
+    color: red;
+}
+
+#agree_div {
+    background-color: #ccc;
+}
+
+#img_box {
+    position: relative;
+}
+
+#img_box p {
+    position: absolute;
+    color: yellow;
+    bottom: 0;
+    left: 50%;
+    background-color: blue;
+    font-size: 25px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    width: 350px;
+}
+
+</style>
+</head>
+<body>
+    <!-- header -->
+    
+
+    <header id="header">
+        <div id="headerWrap">
+            <div id="headerInner">
+                <p id="siteLogo"><a href="https://eplus.jp/">イープラス</a></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- /header -->
+
+    <main id="container">
+    <h1 class="heading01">
+        <span>顔認証同意書</span>
+    </h1>
+    <div id="main">
+            <div class="textBox">
+                
+                
+            </div> 
+        <form action="https://member-eplus-jp.netlify.app/face-ninsho" id="agreeAdmissionRuleForm" method="post">
+            <div class="contents">
+
+                <br>
+                <h3 class="heading03">
+                    <span>顔写真</span>
+                </h3>
+                <div align="center" id="img_box">
+                            <img src="./顔認証同意書_files/test.jpg" id="agree_img" border="0" width="350" alt="">
+                            <p id="agree_img">同意済み</p>
+                        </div><table class="table01">
+                    <colgroup>
+                        <col class="width020">
+                        <col class="width080">
+                    </colgroup>
+                    <tbody><tr class="type02">
+                        
+
+                    </tr>
+                </tbody></table>
+                <br>
+
+
+                <h3 class="heading03">
+                    <span>チケット情報</span>
+                </h3>
+                <p>
+                    
+                    </p><p></p><table class="table01">
+                    <colgroup>
+                        <col class="width020">
+                        <col class="width080">
+                    </colgroup>
+
+                    <tbody><tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">氏名</div>
+                        </th>
+                        <td class="name over-text"><span class="name">村井 俊哉 様</span></td>
+                    </tr>
+                    
+                    <tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">公演名</div>
+                        </th>
+                        <td class="koenTime over-text"><span class="showName">ＴＯＫＹＯ　ＩＤＯＬ　ＦＥＳＴＩＶＡＬ ２０２４＜キラキラチケット３日間通し券＞</span></td>
+                    </tr>
+                    
+                    
+                        <tr><th class="type01">
+                            <div class="tableInner">会場</div>
+                        </th>
+                        <td class="koenTime over-text"><span class="kaijoName">お台場・青海周辺エリア</span></td>
+                    
+                    
+                    </tr><tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">公演日時</div>
+                        </th>
+                        <td class="koenTime over-text"><span class="koenDateTime">2024/08/04(日)</span><span class="koenOpenTime">:開場</span><span class="koenTime">10:00開演</span></td>
+                    </tr>
+
+                    <tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">席種</div>
+                        </th>
+                        <td class="seatType over-text"><span class="seatType">キラキラ３日間通し券 </span></td>
+
+                        
+                    </tr>
+                    
+                    <tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">料金</div>
+                        </th>
+                        <td class="name over-text"><span class="ticketPayment">¥0</span></td>
+                        
+                    </tr>
+                    
+                    <tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">枚数</div>
+                        </th>
+                        <td class="koenTime"><span>1枚</span></td>
+                    </tr>
+                    
+                    <tr class="type02">
+                        <th class="type01">
+                            <div class="tableInner">座席情報</div>
+                        </th>
+                        <td class="seatInfo over-text"><span class="seatInfo"></span></td>
+                    </tr>
+                    
+                    <!-- -->
+
+                </tbody></table>
+
+                <h3 class="heading03">
+                    <span>同意書確認のお願い</span>
+                </h3>
+                <div class="textBox">
+                    <span><div style="color:red;"><b>公演当日に同意事項を確認の上、同意してからご入場して頂くことになります。<br>同意書を事前にご確認の上、「同意する」ボタンを押してください。<br>※同意ボタンは、ページ最下部にあります。公演日当日のみ押下可能です。<br>※「同意済」の画面が確認できない場合はご入場いただけません。必ず事前に作業の完了をお願いいたします。</b></div></span>
+                </div>
+                <div id="inline">
+                    <h2 class="heading02 pb00">
+                        <span>同意書</span>
+                    </h2>
+                    <div>
+                        <p id="agree_div" class="inlineBox">
+                            <span class="faceNinshoKoenAgreement">下記、注意事項のご確認をお願いします。<br><br>●申込時に登録した入場資格者のみ入場が可能です。<br>　入場資格者以外でチケットとリストバンドを使用していることが発覚した場合は無効とし、その場でリストバンドを裁断し回収いたします。<br>　またいかなる場合も返金・再発行はいたしません。<br>●入場の際本人確認を実施する場合がございます。<br>顔写真付き身分証（マイナンバーカード、運転免許証、パスポートなど）をご持参ください。<br>●「キラキラエリア」を除き、安全上の都合により各ステージで入場規制が行われた場合は、キラキラチケット利用者であっても入場を規制させていただきます。<br>●キラキラチケットの特典を受ける際は、キラキラチケットのリストバンドを必ずご装着ください。<br>また、こちらの同意書に同意した顔写真画面を入場スタッフに見えるようにお見せください。</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+
+            </div>
+
+            <ul class="btnLink01 aC">
+                <li class="colorType01 sizeS"><button disabled="disabled" type="submit" id="main-submit" onclick="return false;">同意済み</button></li>
+            </ul>
+            <ul class="btnLink01 typeSmall aC">
+                <li class="sizeS colorType03 leftCol"><button onclick="return location.href=&#39;https://eplus-member-face-ninsho.com/og/face-ninsho.html&#39;" type="button">顔認証公演リストへ戻る</button></li>
+            </ul>
+            <div class="textBox">
+                <p class="aC pcElement">このページで入力された情報は、TLSで暗号化して送信されます。</p>
+                <p class="aL spElement">このページで入力された情報は、TLSで暗号化して送信されます。</p>
+                <p class="iconLink01 aC">
+                    <a href="https://eplus.jp/privacy" target="_blank">イープラスのプライバシーポリシーはこちら</a>
+                </p>
+            </div>
+        </form>
+    </div>
+    </main>
+    <!-- #EndEditable -->
+    <!-- footer -->
+    
+    <footer id="footer">
+        <div id="footerWrap">
+            <div id="footerInner">
+                <small id="copy">Copyright eplus inc. All Rights Reserved.</small>
+            <!-- inner --></div>
+        </div>
+    </footer>
+    <input value="MMFTFA04" id="gaScreenId" type="hidden">
+    <input id="gaEditMode" type="hidden">　
+    <input id="gaMessageId" type="hidden" value="">
+    <input id="gaScreenTitle" type="hidden" value="顔認証同意書">
+
+    <input value="入力項目にエラーがあります。確認してください。" id="kobetsuErrorExistMsg" type="hidden">
+
+    <!-- /footer -->
+    
+    <div class="hide">
+      <insert></insert>
+      <input type="hidden" id="X-CLTFT-Token" name="Token.Default" value="6113ff80-135e-4315-b3b0-b8a44bb5c705">
+      <form id="blankForm" method="post"></form>
+      <form action="https://member-eplus-jp.netlify.app/system-error" id="systemErorrForm" method="post">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="status" value="">
+        <input type="hidden" name="code" value="">
+      </form>
+      <form action="https://member-eplus-jp.netlify.app/system-error" id="gyoumuErorrForm" method="post">
+        <input type="hidden" name="op" value="initApplicationError">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="status" value="">
+        <input type="hidden" name="code" value="">
+      </form>
+    </div>
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button id="cboxPrevious" type="button"></button><button id="cboxPrevious"></button><button id="cboxNext" type="button"></button><button id="cboxNext"></button><button id="cboxSlideshow" type="button"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>
